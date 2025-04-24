@@ -1,0 +1,26 @@
+# config.yaml
+# config.yaml
+server:
+  port: 7860
+
+models:
+  whisper: "openai/whisper-large-v3"
+  embed: "BAAI/bge-small-zh-v1.5"
+  llm: "qwen2.5:latest"
+
+tts:
+  voice: "zh-CN-XiaoxiaoNeural"
+
+ui:
+  examples:
+    - "请问商家欺诈消费者如何处理？"
+    - "商家拒绝退货应该怎么处理？"
+
+paths:
+  data_dir: "./data"
+  vector_db_path: "./chroma_db"
+  persist_dir: "./storage"
+
+audio:
+  start_sound: "assets/start.wav"
+  error_sound: "assets/error.wav"
