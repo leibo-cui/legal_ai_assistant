@@ -376,31 +376,6 @@ def safe_play(audio_segment):
         except PermissionError:
             print(f"警告：临时文件 {temp_name} 删除失败，可能仍在被占用。")
 
-def play_via_pipe(audio_segment):
-    # 确保音频格式与 ffplay 参数匹配
-    raw_data = audio_segment.set_frame_rate(44100) \
-                            .set_channels(2) \
-                            .raw_data  # 导出为 PCM s16le 格式
-
-    # 构造 ffplay 命令
-    ffplay_cmd = [
-        'ffplay',
-        '-nodisp',       # 不显示窗口
-        '-autoexit',     # 播放完成后自动退出
-        '-f', 's16le',   # 强制指定输入格式为 PCM 16-bit little-endian
-        '-ar', '44100',  # 采样率 44.1kHz
-        '-ac', '2',      # 双声道（如果音频实际是单声道，需改为 1）
-        '-'              # 从 stdin 读取数据
-    ]
-
-    # 启动 ffplay 并传递数据
-    process = subprocess.Popen(
-        ffplay_cmd,
-        stdin=subprocess.PIPE,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL
-    )
-    process.communicate(input=raw_data)
 
 # 创建Gradio界面
 interface = gr.Interface(

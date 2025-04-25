@@ -22,21 +22,6 @@ QA_TEMPLATE = (
 response_template = PromptTemplate(QA_TEMPLATE)
 
 ############配置区###############
-# class Config:
-#     # EMBED_MODEL_PATH=r"E:\Export\.cache\huggingface\hub\models--BAAI--bge-small-zh-v1.5\snapshots\7999e1d3359715c523056ef9478215996d62a620"
-#     # LLM_MODEL_PATH=r"E:\Export\.cache\huggingface\hub\models--Qwen--Qwen2.5-3B-Instruct\snapshots\aa8e72537993ba99e69dfaafa59ed015b17504d1"
-#
-#     EMBED_MODEL_PATH="BAAI/bge-small-zh-v1.5"
-#     LLM_MODEL_PATH="qwen2.5:latest"
-#
-#     DATA_DIR=r"./data" # Document data
-#     VECTOR_DB_PATH="./chroma_db"
-#     PERSIST_DIR="./storage" # Store metadata
-#
-#     COLLECTION_NAME="chinese_labor_laws" #
-#     TOP_K = 3 # Decide the number of item when execute
-
-
 import yaml
 from pathlib import Path
 
