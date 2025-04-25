@@ -3,26 +3,24 @@ import torch
 import torchaudio
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 import requests
-import json
 import asyncio
 import edge_tts
 from pydub import AudioSegment
-from pydub.playback import play
 import datetime
-from typing import Tuple, List, Dict
+from typing import Tuple, Dict
 import numpy as np
 import tempfile
 import subprocess
 import os
-from rag_llamaindex import get_rag_system
+from rag.rag_llamaindex import get_rag_system
 import threading
 
 
 import yaml
-from pathlib import Path
+
 
 def load_config():
-    with open("config.yaml", "r", encoding="utf-8") as f:
+    with open("config/config.yaml", "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 CONFIG = load_config()
